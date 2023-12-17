@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    username: root
+    password: admin
+    url: jdbc:mysql://localhost:3306/affable_bootcamp6
+  application:
+    name: affable-bean-backend
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+server:
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8083/eureka
+

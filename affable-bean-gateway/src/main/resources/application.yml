@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: gate-way-service
+  cloud:
+    gateway:
+      routes:
+        - id: affable-bean-backend
+          uri: lb://AFFABLE-BEAN-BACKEND
+          predicates:
+            - Path=/backend/**
+        - id: web-ui-service
+          uri: lb://WEB-UI
+          predicates:
+            -  Path=/ui/**,/bootstrap/**,/images/**
+        - id: delivery-service
+          uri: lb://DELIVER-SERVICE
+          predicates:
+            - Path=/delivery/**
+        - id: payment-gateway-service
+          uri: lb://PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/**
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8083/eureka
+server:
+  port: 8080

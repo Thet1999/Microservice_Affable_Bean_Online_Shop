@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html th:replace="layout/masterLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body class="bg-warning">
+<main role="main">
+    <div class="container mt-5">
+        <div class="p-3 bg-warning">
+            <p class="lead">Hello ! <em th:text="${orderProduct.name()}"></em> Your order has been successfully processed and
+            will be delivered with 24 hours.</p>
+            <p>Please keep your order id : <span th:text="${orderId}"></span></p>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header text-white bg-success">Order Summary</div>
+
+                <table class="table table-success">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="pro : ${orderProduct.products()}">
+                        <td th:text="${pro.name()}"></td>
+                        <td th:text="${pro.quantity()}"></td>
+                        <td th:text="${pro.price()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+                <hr class="my-2">
+                <div class="offset-8 p-3">
+                    <p class="lead">Delivery Charges : <span th:text="${'$'+deliveryCharge}"></span> </p>
+                    <p class="lead">&nbsp;&nbsp;&nbsp;Total : <span th:text="${'$'+total}"></span></p>
+                </div>
+                <hr class="my-2">
+                Date Processed : <span th:text="${orderProduct.dateProcess()}"></span>
+                <hr>
+                <hr>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>

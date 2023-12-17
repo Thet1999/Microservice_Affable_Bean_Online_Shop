@@ -1,0 +1,21 @@
+product:
+  backend:
+    url: http://localhost:8080
+payment:
+  backend:
+    url: http://localhost:8080
+delivery:
+  backend:
+    url: http://localhost:8080
+server:
+  port: 0
+spring:
+  thymeleaf:
+    cache: false
+  application:
+    name: web-ui
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8083/eureka
